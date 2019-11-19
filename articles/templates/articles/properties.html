@@ -1,0 +1,29 @@
+{% extends 'articles/base_page.html' %}
+    {% load staticfiles %}
+    {% block title%}
+        properties
+    {% endblock %}
+
+{% block main%}
+
+    <div class="col-lg">
+        <img src="{% static 'images/Victoria_Crater.jpg' %}" class="img-fluid" alt="Responsive image" >
+    </div>
+
+    <div class="col-lg row">
+        {% for property in properties %}
+    <div class="card col-lg-3 m-2" style="width: 18rem;">
+    <img class="card-img-top" src="{% static 'images/base-mars.jpg' %}" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">{{ property.title }}</h5>
+            <p class="card-text">{{ property.body }}</p>
+            <a href="#" class="btn btn-outline-danger">to buy</a>
+        </div>
+    </div>
+
+
+          {% endfor %}
+        </div>
+
+
+{% endblock %}

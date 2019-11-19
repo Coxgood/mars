@@ -1,0 +1,42 @@
+{% extends 'base_page.html' %}
+    {% load staticfiles %}
+    {% block title%}
+        login
+    {% endblock %}
+        {% block main%}
+<div class="row">
+
+<div class="col-lg-2"></div>
+<div class="col-lg-6 py-3">
+<div class="card">
+  <div class="card-header">
+    <h3>Авторизация</h3>
+  </div>
+
+    <form action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+        <div class="form p-2">
+            <div class="col-sm py-1 row">
+                <label>login</label>
+                <input type="text" class="form-control" placeholder="username" name="username">
+            </div>
+            <div class="col-sm py-1 row">
+                <label>password</label>
+                <input type="password" class="form-control" placeholder="password" name="password">
+            </div>
+            <div class="row">
+                <div class="col-sm-2 m-2">
+                    <button type="submit" class="btn btn-outline-danger my-3">Login</button>
+                </div>
+                <div class="col-sm-2 m-2">
+                    {% if args != None %}
+                        <a href="#" class="btn btn-outline-danger my-3">{{ args }}</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+<div class="col-lg-2"></div></div>
+    {% endblock %}

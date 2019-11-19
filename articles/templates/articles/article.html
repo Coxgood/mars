@@ -1,0 +1,34 @@
+{% extends 'articles/base_page.html' %}
+    {% load staticfiles %}
+    {% block title%}
+        articles
+    {% endblock %}
+
+{% block main%}
+
+    <div class="col-lg">
+        {% for article in articles %}
+
+        <div class="card my-2">
+          <div class="card-header">
+            <h5 class="card-title">{{ article.title }}</h5>
+          </div>
+        <div class="row">
+          <div class="col-9">
+              <div class="card-body">
+                <p class="card-text">{{ article.paragraph  }}</p>
+                <a href="{% url 'article_detail' article.id %}" class="btn btn-outline-danger">прочитать</a>
+              </div>
+              </div>
+              <div class="col-3">
+                  <img src="{% static article.image %}" class="img-fluid" alt="Responsive image">
+              </div>
+        </div>
+        </div>
+
+
+          {% endfor %}
+        </div>
+
+
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'base_page.html' %}
+    {% load staticfiles %}
+    {% block title%}
+        registration
+    {% endblock %}
+        {% block main%}
+<div class="row">
+<div class="col-lg-2 py-3"></div>
+
+<div class="col-lg-6 py-3">
+<div class="card">
+  <div class="card-header">
+    <h3>Регистрация</h3>
+  </div>
+
+    <form action="{% url 'register' %}" method="post">
+    {% csrf_token %}
+        <div class="form p-2">
+            <div class="col-sm py-1 row">
+                <label>login</label>
+                <input type="text" class="form-control" name="username">
+            </div>
+            <div class="col-sm py-1 row">
+                <label>password1</label>
+                <input type="password" class="form-control" name="password1">
+            </div>
+            <div class="col-sm py-1 row">
+                <label>password2</label>
+                <input type="password" class="form-control" name="password2">
+            </div>
+            <div class="row">
+                <div class="col-sm-2 m-2">
+                    <button type="submit" class="btn btn-outline-danger my-3">register</button>
+                </div>
+                <div class="col-sm-2 m-2">
+                    {% if mess != None %}
+                        <a href="#" class="btn btn-outline-danger my-3">{{ mess }}</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+<div class="col-lg-2 py-3"></div>
+</div>
+
+    {% endblock %}
+
+
+<!--
+
+<div class="col-lg-6 py-3">
+<div class="card">
+  <div class="card-header">
+    <h3>Регистрация</h3>
+  </div>
+
+    <form action="{% url 'register' %}" method="post">
+    {% csrf_token %}
+        {{ form.as_p }}
+        <div class="form">
+            <div class="col-sm-10">
+                <button type="submit" class="btn btn-outline-danger my-3">register</button>
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+
+-->
