@@ -32,7 +32,7 @@ SECRET_KEY = '!h7lnw@9t*z5$e*-2hx*^$)q5ohui=$c#a=r5)pd7xzrwh_wyi'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['195.2.67.92']
 
 
 # Application definition
@@ -86,8 +86,14 @@ WSGI_APPLICATION = 'mars.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        #'ENGINE': 'django.db.backends.sqlite3',
+        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2', 
+        'NAME': 'marsdb', 
+        'USER': 'django', 
+        'PASSWORD': '12345', 
+        'HOST': 'localhost', 
+        'PORT': '',
     }
 }
 
@@ -130,3 +136,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [ os.path.join(BASE_DIR, "static"), ]
+STATIC_ROOT = '/home/django/mars/static'
+MEDIA_ROOT = '/home/django/mars/media'
